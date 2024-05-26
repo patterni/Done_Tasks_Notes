@@ -26,4 +26,10 @@
     <string name="save">Зберегти</string>
     <string name="language">Мова</string>
     <string name="sign_out">Вийти</string>
+    <string name="save_note">Зберегти</string>
+    <string name="add_note">Додати</string>
+    <string name="your_notes">Нотатки</string>
+    <string name="title">Назва</string>
+    <string name="date">Дата</string>
+    <string name="color">Колір</string>
 </resources>

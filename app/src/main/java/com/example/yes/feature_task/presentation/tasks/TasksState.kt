@@ -5,6 +5,6 @@ import com.example.yes.util.OrderType
 
 data class TasksState (
     val tasks:List<Task> = emptyList(),
-    val isOrderSectionVisible:Boolean = true,
+    val isOrderSectionVisible:Boolean = false,
     val orderType: OrderType = OrderType.Descending,
 )

@@ -31,13 +31,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.yes.R
 import com.example.yes.feature_note.domain.model.Note
 import com.example.yes.feature_note.presentation.notes.components.NoteItem
 import com.example.yes.feature_note.presentation.notes.components.NotesOrderSection
@@ -52,7 +58,6 @@ fun NotesScreen(
 ){
     val state = viewModel.state.value
 
-    Log.d("DEBUG", "${state.isOrderSectionVisible}")
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -63,7 +68,7 @@ fun NotesScreen(
         floatingActionButton = {FloatingActionButton(onClick = {
             navController.navigate(Screen.AddEditNoteScreen.route)
         }){
-            Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")}
+            Icon(imageVector = Icons.Default.Add, contentDescription =  stringResource(id = R.string.add_note))}
         }) {paddingValues ->
 
         Column(
@@ -71,20 +76,24 @@ fun NotesScreen(
                 .fillMaxSize()
                 .padding(paddingValues)) {
             
-            Row(modifier = Modifier.fillMaxWidth(),
+            Row(modifier = Modifier.fillMaxWidth().padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
-                
                 Text(
-                    text = "Your notes",
-                    style = MaterialTheme.typography.headlineLarge
+                    text =  stringResource(id = R.string.your_notes),
+                    style = MaterialTheme.typography.bodyLarge.
+                    plus(
+                        TextStyle(fontSize = 35.sp, fontWeight = FontWeight.Bold)),
+                    modifier = Modifier.padding(12.dp,12.dp,12.dp,8.dp)
                 )
                 
                 IconButton(onClick = {
                     viewModel.onEvent(NotesEvent.ToggleOrderSection)
-                   }
+                   }, modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(horizontal = 12.dp)
                 ) {
                     Icon(imageVector = Icons.Default.Sort,
-                        contentDescription = "Sort")
+                        contentDescription =  stringResource(id = R.string.sort))
                 }
             }
             AnimatedVisibility(
@@ -95,17 +104,16 @@ fun NotesScreen(
                 NotesOrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(vertical = 8.dp),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NotesEvent.Order(it))
                     }
                 )
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            LazyColumn(modifier = Modifier.fillMaxSize()){
+            Spacer(modifier = Modifier.height(8.dp))
+            LazyColumn(modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp)){
                 items(state.notes){note->
-                    Log.d("NOTE", "YES")
                     NoteItem(note = note,
                         modifier = Modifier
                             .fillMaxWidth()

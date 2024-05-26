@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.example.yes.feature_note.domain.model.Note
+import com.example.yes.ui.theme.LightGrey
 
 @Composable
 fun NoteItem(
@@ -70,7 +71,7 @@ fun NoteItem(
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = LightGrey,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -79,7 +80,7 @@ fun NoteItem(
             Text(
                 text = note.content,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = LightGrey,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
             )
@@ -89,7 +90,8 @@ fun NoteItem(
             modifier = Modifier.align(Alignment.BottomEnd)
         ) {
             Icon(imageVector = Icons.Default.Delete,
-                contentDescription = "Delete note")
+                contentDescription = "Delete note",
+                tint = LightGrey)
 
         }
     }

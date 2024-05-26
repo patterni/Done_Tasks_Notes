@@ -25,4 +25,10 @@
     <string name="save">Save</string>
     <string name="language">Language</string>
     <string name="sign_out">Sign Out</string>
+    <string name="save_note">Save note</string>
+    <string name="add_note">Add note</string>
+    <string name="your_notes">Your notes</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="color">Color</string>
 </resources>

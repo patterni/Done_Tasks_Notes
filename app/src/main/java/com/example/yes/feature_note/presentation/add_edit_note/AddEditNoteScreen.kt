@@ -34,9 +34,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.yes.R
 import com.example.yes.feature_note.domain.model.Note
 import com.example.yes.feature_note.presentation.add_edit_note.components.TransparentHintTextField
 import com.example.yes.util.UiEvent
@@ -83,7 +88,7 @@ fun AddEditNoteScreen (
             FloatingActionButton(onClick = {
                 viewModel.onEvent(AddEditNoteEvent.SaveNote)
             }) {
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
+                Icon(imageVector = Icons.Default.Save, contentDescription = stringResource(id = R.string.save_note))
             }
         }
     ) {paddingValues ->
@@ -95,7 +100,7 @@ fun AddEditNoteScreen (
 
             Row(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp),
+                .padding(24.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Note.noteColors.forEach { color->
@@ -139,7 +144,7 @@ fun AddEditNoteScreen (
                 },
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
-                textStyle = MaterialTheme.typography.bodyLarge
+                textStyle = TextStyle(fontWeight = FontWeight.Bold, fontSize = 38.sp)
             )
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
@@ -152,7 +157,7 @@ fun AddEditNoteScreen (
                     viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                 },
                 isHintVisible = contentState.isHintVisible,
-                textStyle = MaterialTheme.typography.bodyMedium,
+                textStyle = TextStyle(fontWeight = FontWeight.Medium, fontSize = 20.sp),
                 modifier = Modifier.fillMaxHeight()
             )
         }

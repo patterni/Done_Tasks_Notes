@@ -1,10 +1,10 @@
 package com.example.yes.feature_note.domain.model
 
-import com.example.yes.ui.theme.NoteBeige
-import com.example.yes.ui.theme.NoteBlue
-import com.example.yes.ui.theme.NoteLightBlue
-import com.example.yes.ui.theme.NoteTeal
-import com.example.yes.ui.theme.NoteYellow
+import com.example.yes.ui.theme.DarkBlue
+import com.example.yes.ui.theme.TestBlue
+import com.example.yes.ui.theme.TestFifth
+import com.example.yes.ui.theme.TestForth
+import com.example.yes.ui.theme.TestGrey
 
 data class Note(
     val title:String,
@@ -14,7 +14,7 @@ data class Note(
     val id: String? = ""
 ){
     companion object{
-        val noteColors = listOf(NoteTeal, NoteBlue, NoteLightBlue, NoteBeige, NoteYellow)
+        val noteColors = listOf(TestGrey, TestBlue, TestFifth, TestForth,  DarkBlue)
     }
     constructor() : this(
         title = "",

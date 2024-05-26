@@ -7,5 +7,5 @@ import com.example.yes.util.OrderType
 data class NotesState(
     val notes:List<Note> = emptyList(),
     val noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
-    val isOrderSectionVisible:Boolean = true
+    val isOrderSectionVisible:Boolean = false
 )

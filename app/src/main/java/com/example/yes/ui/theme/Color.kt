@@ -16,8 +16,8 @@ val AshGrey = Color(0xFF899499)
 val FABColor = Color(0xFF176B87)
 val TextFieldColor = Color(0x333466AA)
 
-val NoteBlue = Color(0xFF637A9F)
-val NoteLightBlue = Color(0xFFC9D7DD)
-val NoteBeige = Color(0xFFFFF3CF)
-val NoteYellow = Color(0xFFE8C872)
-val NoteTeal = Color(0xFF8CB9BD)
+
+val TestBlue = Color(0xFF2c3e50)
+val TestGrey = Color(0xFF333333)
+val TestForth = Color(0xFF475c78)
+val TestFifth = Color(0xFF0892d0)
